@@ -2,12 +2,14 @@ lockfileVersion: 5.4
 
 specifiers:
   node-fetch: ^2.6.7
+  tiny-glob: ^0.2.9
   vercel: ^25.2.2
 
 dependencies:
   node-fetch: 2.6.7
 
 devDependencies:
+  tiny-glob: 0.2.9
   vercel: 25.2.2
 
 packages:
@@ -821,6 +823,14 @@ packages:
       ini: 2.0.0
     dev: true
 
+  /globalyzer/0.1.0:
+    resolution: {integrity: sha512-40oNTM9UfG6aBmuKxk/giHn5nQ8RVz/SS4Ir6zgzOv9/qC3kKZ9v4etGTcJbEl/NyVQH7FGU7d+X1egr57Md2Q==}
+    dev: true
+
+  /globrex/0.1.2:
+    resolution: {integrity: sha512-uHJgbwAMwNFf5mLst7IWLNg14x1CkeqglJb/K3doi4dw6q2IvAAmM/Y81kevy83wP+Sst+nutFTYOGg3d1lsxg==}
+    dev: true
+
   /got/9.6.0:
     resolution: {integrity: sha512-R7eWptXuGYxwijs0eV+v3o6+XH1IqVK8dJOEecQfTmkncw9AV4dcw/Dhxi8MdlqPthxxpZyizMzyg8RTmEsG+Q==}
     engines: {node: '>=8.6'}
@@ -1395,6 +1405,13 @@ packages:
     engines: {node: '>=10'}
     dependencies:
       convert-hrtime: 3.0.0
+    dev: true
+
+  /tiny-glob/0.2.9:
+    resolution: {integrity: sha512-g/55ssRPUjShh+xkfx9UPDXqhckHEsHr4Vd9zX55oSdGZc/MD0m3sferOkwWtp98bv+kcVfEHtRJgBVJzelrzg==}
+    dependencies:
+      globalyzer: 0.1.0
+      globrex: 0.1.2
     dev: true
 
   /to-readable-stream/1.0.0:

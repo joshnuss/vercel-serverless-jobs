@@ -1,10 +1,4 @@
-import fetch from 'node-fetch'
+import { wrap } from '../wrap.js'
+import handler from '../jobs/sendMail.js'
 
-export default async function handler(request, response) {
-  const res = await fetch('https://google.com')
-
-  response.json({
-    message: 'hello world',
-    body: await res.text()
-  })
-}
+export default wrap(handler)
