@@ -1,4 +1,4 @@
-import { success, failure } from './reply.js'
+import { success, failure } from './receipt.js'
 
 export function wrap(handler) {
   return async (request, response) => {
