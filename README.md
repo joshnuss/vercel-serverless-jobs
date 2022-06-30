@@ -1,12 +1,14 @@
 # Serverless background job experiment
 
-Each background job is a serverless function that notifies the "coordinator" when it succeeds or failures.
+An experiment to create an asynchronous background job queue based on cloud functions.
 
-When a failure occurs, the coordinator will re-schedule the worker to be retried later.
+Each background job is a serverless function that notifies a "coordinator" when it succeeds or failures.
 
-## Bakckground job
+When a failure occurs, the coordinator will re-schedule the worker to be retried later based on a backoff strategy.
 
-A background job looks like this:
+## Background job
+
+A background job is a function that looks like this:
 
 ```javascript
 // in jobs/sendMail.js
@@ -28,7 +30,7 @@ export default async function job(args) {
 
 ## Building
 
-The build process will generate vercel serverless functions:
+The build process generates Vercel serverless functions:
 
 ```bash
 pnpm build
@@ -36,14 +38,18 @@ pnpm build
 
 ## Deploy
 
+The jobs can be deployed to vercel:
+
 ```bash
 npx vercel
 ```
 
 ## Testing
 
-The job can be manually called with `curl`:
+The job can be called manually via `curl`:
 
 ```bash
-curl http://localhost:3000/api/sendMail -d '{"id": 1, "callback": "http://localhost/reply/1", "args": {"from": "josh@example.com", "to": "josh@example.com", "subject": "It works", "message": "It totally works"}}' -H 'content-type: application/json'
+curl http://localhost:3000/api/sendMail \
+  -H 'content-type: application/json' \
+  -d '{"id": 1, "callback": "http://localhost/reply/1", "args": {"from": "josh@example.com", "to": "josh@example.com", "subject": "It works", "message": "It totally works"}}'
 ```
