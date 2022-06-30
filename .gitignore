@@ -1,3 +1,4 @@
+/api
 /node_modules
 .pnpm-debug.log
 .vercel
