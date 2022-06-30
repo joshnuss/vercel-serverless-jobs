@@ -60,5 +60,5 @@ The job can be called manually via `curl`:
 ```bash
 curl http://localhost:3000/api/sendMail \
   -H 'content-type: application/json' \
-  -d '{"id": 1, "callback": "http://localhost/receipt/1", "args": {"from": "josh@example.com", "to": "josh@example.com", "subject": "It works", "message": "It totally works"}}'
+  -d '{"id": 1, "receipt": "http://localhost/receipt/1", "args": {"from": "josh@example.com", "to": "josh@example.com", "subject": "It works", "message": "It totally works"}}'
 ```
