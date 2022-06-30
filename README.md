@@ -11,6 +11,15 @@ When a failure occurs, the coordinator will re-schedule the worker to be retried
 A background job is a function that looks like this:
 
 ```javascript
+// in jobs/example.js
+export default async function job(args) {
+  console.log(args)
+}
+```
+
+For example, a job for sending an e-mail might look like this:
+
+```javascript
 // in jobs/sendMail.js
 import postmark from 'postmark'
 
